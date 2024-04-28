@@ -1,0 +1,111 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+class Calculator {
+public:
+    void welcomeMessage() {
+        cout << "\t\t\t\t******* WELCOME TO THE CALCULATOR ******" << endl;
+    }
+
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int subtract(int a, int b) {
+        return a - b;
+    }
+
+    int multiply(int a, int b) {
+        return a * b;
+    }
+
+    float divide(float a, float b) {
+        return a / b;
+    }
+
+    int power(int a, int b) {
+        return pow(a, b);
+    }
+
+    int modulo(int a, int b) {
+        return a % b;
+    }
+};
+
+int main() {
+    Calculator calc;
+    calc.welcomeMessage();
+
+    int choice;
+    cout << "1. Addition ('+')\n2. Subtraction ('-')\n3. Multiplication ('')\n4. Division ('/')\n5. Modulo ('%')\n6. Power ('*')" << endl;
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    int a, b, result;
+    switch (choice) {
+        case 1:
+            cout << "You chose option 1" << endl;
+            cout << "Enter First number: ";
+            cin >> a;
+            cout << "Enter Second number: ";
+            cin >> b;
+            result = calc.add(a, b);
+            cout << "The sum of " << a << " and " << b << " is " << result << endl;
+            break;
+        case 2:
+            cout << "You chose option 2" << endl;
+            cout << "Enter First number: ";
+            cin >> a;
+            cout << "Enter Second number: ";
+            cin >> b;
+            result = calc.subtract(a, b);
+            cout << "The subtraction of " << a << " and " << b << " is " << result << endl;
+            break;
+        case 3:
+            cout << "You chose option 3" << endl;
+            cout << "Enter First number: ";
+            cin >> a;
+            cout << "Enter Second number: ";
+            cin >> b;
+            result = calc.multiply(a, b);
+            cout << "The product of " << a << " and " << b << " is " << result << endl;
+            break;
+        case 4:
+            cout << "You chose option 4" << endl;
+            cout << "Enter First number: ";
+            cin >> a;
+            cout << "Enter Second number: ";
+            cin >> b;
+            if (b == 0) {
+                cout << "Error! Division by zero is not allowed." << endl;
+            } else {
+                float resultFloat = calc.divide(static_cast<float>(a), static_cast<float>(b));
+                cout << "The division of " << a << " by " << b << " is " << resultFloat << endl;
+            }
+            break;
+        case 5:
+            cout << "You chose option 5" << endl;
+            cout << "Enter First number: ";
+            cin >> a;
+            cout << "Enter Second number: ";
+            cin >> b;
+            result = calc.modulo(a, b);
+            cout << "The remainder of " << a << " divided by " << b << " is " << result << endl;
+            break;
+        case 6:
+            cout << "You chose option 6" << endl;
+            cout << "Enter base number: ";
+            cin >> a;
+            cout << "Enter exponent: ";
+            cin >> b;
+            result = calc.power(a, b);
+            cout << "The result of " << a << " raised to the power of " << b << " is " << result << endl;
+            break;
+        default:
+            cout << "Invalid input! Please enter a valid choice." << endl;
+    }
+    cout << "\t\t** Thanks for using! If you need again, you can use further **" << endl;
+    return 0;
+}
